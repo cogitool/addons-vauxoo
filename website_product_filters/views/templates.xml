@@ -11,9 +11,9 @@
                       <t t-foreach="attributes" t-as="a">
                         <t t-if="a.type != 'hidden'">
                           <li t-if="a.value_ids and len(a.value_ids) > 1">
-                            <div class="panel panel-default">
-                              <div class="panel-heading"><strong t-field="a.name"/></div>
-                              <div class="panel-body">
+                            <div class="">
+                              <div class=""><strong t-field="a.name"/></div>
+                              <div class="">
                               <t t-if="a.type == 'select'">
                                 <select class="form-control" name="attrib">
                                   <option value=""/>
@@ -45,7 +45,7 @@
                                       </t>
                                       <t t-set="counter" t-value="counter+1"/>
                                     </t>
-                                    <a class="show-more"><span class="fa fa-plus-square"></span> Show More</a>
+                                    <a class="show-more"><span class="fa fa-caret-down"></span> Voir plus</a>
                                 </ul>
                               </t>
                               <t t-if="a.type == 'color'">
@@ -68,6 +68,9 @@
                         </t>
                       </t>
                   </ul>
+
+<!--
+
             <t t-if="price_ranges">
                 <div class="panel panel-default">
                     <div class="panel-heading">Price Range</div>
@@ -121,6 +124,9 @@
                     </div>
                 </div>
             </t>
+            
+ -->           
+            
               </form>
             </t>
           </xpath>
@@ -132,86 +138,6 @@
           </xpath>
         </template>
 
-        <!-- TEMPLATE TO SHOW BRAND LIST -->
-        <template id="product_brands_column" inherit_id="website_sale.products" active="False" customize_show="True" name="Product Brands">
-          <xpath expr="//div[@id='products_grid_before']" position="inside">
-              <div class="dropdown">
-                  <p class="active">Select a Brand</p>
-                  <button class="btn btn-default dropdown-toggle" type="button" id="brandDropDown" data-toggle="dropdown" aria-haspopup="true">Select a Brand
-                  <span class="caret"></span>
-                  </button>
-                      <ul class="dropdown-menu" aria-labelledby="brandDropDown">
-                      <li t-att-class=" '' if brand else 'brand active' "><a t-att-href="keep('/shop',brand=0)"><b>All Brands</b></a></li>
-                      <t t-foreach="brands" t-as="b">
-                          <li t-att-class="'brand active' if b.id == int(brand or 0) else ''">
-                                  <label style="margin: 0 20px;">
-                                  <input type="checkbox" name="attrib" t-att-value="'%s' % (b.id)" t-att-checked="'checked' if b.id == int(brand or 0) else ''"/>
-                                  <span style="font-weight: normal" t-field="b.name"/>
-                              </label>
-                          </li>
-                      </t>
-                      </ul>
-              </div>
-          </xpath>
-          <xpath expr="//div[@id='products_grid_before']" position="attributes">
-              <attribute name="class">col-md-3 hidden-xs</attribute>
-          </xpath>
-          <xpath expr="//div[@id='products_grid']" position="attributes">
-              <attribute name="class">col-md-9</attribute>
-          </xpath>
-        </template>
-
-        <!-- TEMPLATE TO ADD DATA RATING TO EACH DIV -->
-        <template id="product_div_rating" inherit_id="website_sale.products_list_view" active="True">
-          <xpath expr="//div[@class='oe_product oe_list oe_product_cart']" position="attributes">
-            <attribute name="t-att-data-rating">product.rating and product.rating or '0'</attribute>
-            <attribute name="t-att-data-name">product.name and product.name or ' '</attribute>
-            <attribute name="t-att-data-views">product.views and product.views or '0'</attribute>
-            <attribute name="t-att-data-hottest">product.decimal_time and product.decimal_time or '0'</attribute>
-            <attribute name="t-att-data-price">product.lst_price and product.lst_price or '0'</attribute>
-          </xpath>
-        </template>
-
-        <template id="product_sort_bar" inherit_id="website_sale.products" active="True">
-          <xpath expr="//div[@class='products_pager']/div[@class='row']/t[@t-call='website_sale.search']" position="replace">
-
-            <div class="panel panel-default">
-            <div class="col-md-6">
-                <ul class="breadcrumb">
-                    <li><a id="bread_home" href="/">Home</a></li>
-                    <li><a id="bread_products" href="/shop">Products</a></li>
-                    <li class="active"><a id="bread_category">All Products</a></li>
-                </ul>
-            </div>
-              <div class="col-md-3 mt8">
-                <label for="prduct_sorter" class="form-group">Sort by : </label>
-                <select id="product_sorter" name="product_sorter">
-                  <option value="0" selected="selected">Select...</option>
-                  <option value="name">Product Name</option>
-                  <option value="pasc">Price Lowest</option>
-                  <option value="pdesc">Price Highest</option>
-                  <option value="hottest">Hottest</option>
-                  <option value="rating">Customer Rating</option>
-                  <option value="popularity">Popularity</option>
-                </select>
-              </div>
-              <t t-call="website_sale.search"><t t-set="search_class">col-md-3</t></t>
-
-            </div>
-          </xpath>
-          <xpath expr="//div[@class='products_pager']/div[@class='row']/t[@t-call='website.pager']" position="replace">
-          </xpath>
-        </template>
-        <!-- TEMPLATE TO SHOW RATING ON PRODUCT LIST -->
-        <template id="product_list_rating" inherit_id="website_sale.products_item" active="True">
-          <xpath expr="//div[@class='product_price']" position="inside">
-                <div id="stars_global" class="starrr pull-right" t-att-data-rating="product.rating"></div>
-          </xpath>
-        </template>
-        <template id="categ_class_nav_pills" inherit_id="website_sale.categories_recursive" active="True">
-          <xpath expr="//li" position="attributes">
-            <attribute name="data-id">category-pills</attribute>
-          </xpath>
-        </template>
+ 
     </data>
 </openerp>

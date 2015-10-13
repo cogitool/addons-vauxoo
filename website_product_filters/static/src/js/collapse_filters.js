@@ -24,13 +24,13 @@
           var shown_elements = parent.find(".un-hidden");
           shown_elements.addClass("hidden");
           shown_elements.removeClass("un-hidden");
-          button.html('<a class="show-more"><span class="fa fa-plus-square"></span> Show More</a>');
+          button.html('<a class="show-more"><span class="fa fa-caret-down"></span> Voir plus</a>');
           button.removeClass("clicked");
         }
         else {
           hidden_elements.removeClass("hidden");
           hidden_elements.addClass("un-hidden");
-          button.html('<a class="show-more"><span class="fa fa-minus-square"></span> Show Less</a>');
+          button.html('<a class="show-more"><span class="fa fa-caret-up"></span> Réduire</a>');
           button.addClass("clicked");
         }
         });
