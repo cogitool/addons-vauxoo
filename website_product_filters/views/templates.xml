@@ -3,7 +3,7 @@
     <data>
         <!-- TEMPLATE TO SHOW BRANDS AND ATTRIBUTES BASED ON CATEGORY -->
         <template id="website_sale.products_attributes" inherit_id="website_sale.products_categories" active="True" customize_show="True" name="Product Attribute's Filters">
-          <xpath expr="//ul" position="after">
+          <xpath expr="//ul" position="replace">
             <t t-if="attributes">
               <form class="js_attributes" method="get">
                   <input type="hidden" name="search" t-att-value="search"/>
@@ -72,9 +72,9 @@
 
 
             <t t-if="price_ranges">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Price Range</div>
-                    <div class="panel-body">
+                <div class="">
+                    <div class="">Price Range</div>
+                    <div class="">
                       <ul class="nav nav-pills nav-stacked">
                         <t t-set="counter" t-value="1"/>
                           <t t-foreach="price_ranges" t-as="r">
