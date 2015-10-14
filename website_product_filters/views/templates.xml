@@ -107,23 +107,7 @@
                     </div>
                 </div>
             </t>
-            <t t-if="brands">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Brands</div>
-                    <div class="panel-body">
-                      <ul class="nav nav-pills nav-stacked">
-                          <t t-foreach="brands" t-as="b">
-                          <li t-att-class="'brand active' if b.id in brand_set else ''">
-                          <label style="margin: 0 20px;">
-                                  <input type="checkbox" name="brand" t-att-value="'%s' % b.id" t-att-checked="'checked' if b.id in brand_set else ''"/>
-                            <span style="font-weight: normal" t-field="b.name"/>
-                            </label>
-                          </li>
-                          </t>
-                      </ul>
-                    </div>
-                </div>
-            </t>
+
             
           
             
@@ -137,6 +121,9 @@
               <attribute name="class">col-md-9</attribute>
           </xpath>
         </template>
+
+
+
 
  
     </data>
