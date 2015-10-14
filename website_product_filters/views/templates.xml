@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <!-- TEMPLATE TO SHOW BRANDS AND ATTRIBUTES BASED ON CATEGORY -->
-        <template id="website_sale.products_attributes" inherit_id="website_sale.products_categories" active="False" customize_show="True" name="Product Attribute's Filters">
+        <template id="website_sale.products_attributes" inherit_id="website_sale.products_categories" active="True" customize_show="True" name="Product Attribute's Filters">
           <xpath expr="//ul" position="after">
             <t t-if="attributes">
               <form class="js_attributes" method="get">
